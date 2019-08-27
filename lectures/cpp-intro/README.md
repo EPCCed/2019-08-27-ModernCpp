@@ -253,19 +253,19 @@ module load gcc/8.2.0
 # Getting the source code
 
 All these slides and the exerices are available on GitHub:
-https://github.com/EPCCed/cpp4hpc
+https://github.com/EPCCed/2019-08-27-ModernCpp/
 
 You also can view the slides and other materials in a browser by going
 to https://EPCCed.github.io/2019-08-27-ModernCpp/
 
 In the terminal, you need to use git get a copy of the exercises:
 ```
-git clone https://github.com/EPCCed/cpp4hpc
+git clone https://github.com/EPCCed/2019-08-27-ModernCpp/
 ```
 
 Then you can change to the directory with this simple program
 ```
-cd cpp4hpc//hello
+cd 2019-08-27-ModernCpp/lectures/cpp-intro/hello
 ```
 
 ---

@@ -101,7 +101,7 @@ Also be aware that resizes may force reallocation and copying!
 
 ```C++
 std::vector<unsigned> first_n_primes(unsigned n) {
-  std::vector<int> ans;
+  std::vector<unsigned> ans;
   unsigned maybe_prime = 0;
   while (ans.size() < n) {
     if (is_prime(maybe_prime)) {
@@ -128,7 +128,7 @@ Discuss capacity.
 
 -   Almost like a vector, but you can't change the size.
 
--   Only difference is construction:
+-   Only difference is construction - list the values inside the braces
 
 ```C++
 #include <array>
@@ -252,7 +252,7 @@ condition can be a variable or a more complex condtion
 
 void ShowData(std::vector<int>& data) {
   for (int x: data) {
-    std::cout << p << "\n";
+    std::cout << x << "\n";
   }
 }
 ```
