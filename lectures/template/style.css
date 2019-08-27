@@ -1,0 +1,21 @@
+div.thumb {
+    padding: 0.5em;
+    margin: 0.25em;
+    border-style: solid;
+    border-color: rgb(0,50,95);
+    display: flex;
+    align-items: center;
+}
+
+div.thumb::before {
+    content: url(thumbs_up.png);
+}
+
+blockquote {
+    padding: 0.5em;
+    background-color: #F0F0F0;
+}
+
+.smaller {
+    font-size: smaller;
+}
