@@ -572,7 +572,7 @@ C++ has the concept of a **reference**.
 - A reference must be initialised (function arguments are initialised
   by calling)
 
-- A reference cannot by rebound to a new object
+- A reference cannot be rebound to a new object
 
 ```C++
 void ScaleVector(double scale, std::vector<double>& x) {

@@ -3,7 +3,7 @@ template: titleslide
 ## Rupert Nash
 ## r.nash@epcc.ed.ac.uk
 
-~~~
+???
 
 We've hinted at this already, with `std::vector<int>`, `std::shared_ptr<Cowboy>` etc
 
@@ -29,7 +29,7 @@ What if we need this for `float`, `unsigned`, and out `Complex` class?
 
 Going to get boring and hard to maintain quickly!
 
-~~~
+???
 
 Recall the sum functions from the first lecture
 
@@ -72,7 +72,7 @@ You can also let the compiler do the deduction for you
 std::cout << "add unsigned=" << sum(1U, 4U) << endl;
 std::cout << "add floats=" << sum(1.0f, 4e-2f) << endl;
 ```
-~~~
+???
 
 This is called implicit template instantiation - there are a few
 wrinkles that we'll talk about
