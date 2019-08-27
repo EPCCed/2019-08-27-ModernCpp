@@ -2,6 +2,7 @@
 #define MORTON_MATRIX_HPP
 
 #include <cassert>
+#include <memory>
 #include "bits.hpp"
 
 namespace morton {
@@ -20,12 +21,12 @@ namespace morton {
   template<class T>
   class matrix {
   public:
-    // TODO - anything needed?
+    // Default initialisation of unique_ptr is OK
     matrix() : _rank(0) {
     }
 
-    // TODO - allocate some memory
     matrix(uint32_t r)
+      : _rank(r), _data(new T[r*r]) 
     {
       // Check it's a power of 2. Could consider throwing an
       // exception, but these are not in the syllabus!
@@ -37,17 +38,19 @@ namespace morton {
     matrix& operator=(const matrix& other) = delete;
 
     // Moving is allowed
-    // TODO - will the default implementations be OK?
-    matrix(matrix&& other) noexcept;
-    matrix& operator=(matrix&& other) noexcept;
+    // Default is ok because of choice to use unique_ptr to manage data storage
+    matrix(matrix&& other) noexcept = default;
+    matrix& operator=(matrix&& other) noexcept = default;
 
     // Destructor
-    // TODO - will the default implemenation be OK?
-    ~matrix();
+    // Default ok because of unique_ptr
+    ~matrix() = default;
 
     // Create a new matrix with contents copied from this one
     matrix duplicate() const {
-      // TODO
+      matrix ans(_rank);
+      std::copy(data(), data() + size(), ans.data.get());
+      return ans;
     }
 
     // Get rank size
@@ -60,25 +63,33 @@ namespace morton {
       return uint64_t(_rank) * uint64_t(_rank);
     }
 
-    // TODO
     // Const element access
-    const T& operator()(uint32_t i, uint32_t j) const;
+    const T& operator()(uint32_t i, uint32_t j) const {
+      auto z = encode(i, j);
+      return _data[z];
+    }
 
-    // TODO
     // Mutable element access
-    T& operator()(uint32_t i, uint32_t j);
+    T& operator()(uint32_t i, uint32_t j) {
+      auto z = encode(i, j);
+      return _data[z];
+    }
 
-    // TODO
     // Raw data access (const and mutable versions)
-    const T* data() const;
-    T* data();
+    const T* data() const {
+      return _data.get();
+    }
+    T* data() {
+      return _data.get();
+    }
 
     
   private:
     // rank of matrix
     uint32_t _rank;
     // Data storage
-    // TODO - choose how to store data and manage that memory
+    // Note using array version of unique_ptr
+    std::unique_ptr<T[]> _data;
   };
   
 }
