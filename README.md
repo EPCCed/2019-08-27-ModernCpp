@@ -10,7 +10,28 @@ lectures and practical exercises, will cover a minimal set of features
 to allow an experienced non-C++ programmer to get to grips with
 language.
 
+Code: all slides and exercises can be viewed online:
+- Web view: https://epcced.github.io/2019-08-27-ModernCpp/index.html
+- Git repository: https://github.com/EPCCed/2019-08-27-ModernCpp/
+
+## Acknowledgements
+
+Thanks to PRACE and ARCHIE-WeSt for funding!
+
+http://www.prace-ri.eu
+https://www.archie-west.ac.uk
+
+
 ## Local arrangements
+
+- Fire safety
+
+- Toilets
+
+- Catering
+  - Morning coffee 10:30
+  - Lunch 12:00
+  - Afternoon 14:30
 
 
 ## Course content
