@@ -318,7 +318,7 @@ std::vector<int> ReadData() {
 int main() {
   auto data = ReadData();
 }
-  
+```
 ???
 
 Thinking about std::vector examples we've seen and that you might have implemented
