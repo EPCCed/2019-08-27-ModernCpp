@@ -106,28 +106,34 @@ int main( int argc, char* argv[] )
     ViewMatrixType A( "A", N, M );
 
     // EXERCISE: Create mirrors of the views on host.
+    ViewVectorType::HostMirror h_y = Kokkos::create_mirror_view( y );
+    ViewVectorType::HostMirror h_x = Kokkos::create_mirror_view( x );
+    ViewMatrixType::HostMirror h_A = Kokkos::create_mirror_view( A );
 
     // Initialize y vector on host.
     // EXERCISE: Use host version of y.
     for ( int i = 0; i < N; ++i ) {
-      y( i ) = 1;
+      h_y( i ) = 1;
     }
 
     // Initialize x vector on host.
     // EXERCISE: Use host version of x.
     for ( int i = 0; i < M; ++i ) {
-      x( i ) = 1;
+      h_x( i ) = 1;
     }
 
     // Initialize A matrix on host.
     // EXERCISE: Use host version of A.
     for ( int j = 0; j < N; ++j ) {
       for ( int i = 0; i < M; ++i ) {
-	A( j, i ) = 1;
+	h_A( j, i ) = 1;
       }
     }
 
     // EXERCISE: Perform deep copy of host views to device views.
+    Kokkos::deep_copy( y, h_y );
+    Kokkos::deep_copy( x, h_x );
+    Kokkos::deep_copy( A, h_A );
 
     // Timer products.
     struct timeval begin, end;

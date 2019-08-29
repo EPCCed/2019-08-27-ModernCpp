@@ -120,8 +120,8 @@ int main( int argc, char* argv[] )
 
   // Allocate y, x vectors and Matrix A on device.
   // EXERCISE: Use MemSpace and Layout.
-  using ViewVectorType = Kokkos::View<double*>;
-  using ViewMatrixType = Kokkos::View<double**>;
+  using ViewVectorType = Kokkos::View<double*, Layout, MemSpace>;
+  using ViewMatrixType = Kokkos::View<double**, Layout, MemSpace>;
   {
     ViewVectorType y( "y", N );
     ViewVectorType x( "x", M );
