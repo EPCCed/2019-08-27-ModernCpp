@@ -114,64 +114,6 @@ Why bother?
 However often a range-based for loop is better!
 
 ---
-
-# Many ways to iterate
-```C++
-// C style iteration - fully explicit
-for (auto i=0; i != n; ++i) {
-  data[i] *= 2;
-  }
-  
-// Old C++ style - hides some details
-for (auto iter = data.begin(); iter != data.end(); ++iter) {
-  *iter *= 2;
-}
-  
-// New range-based for
-for (auto& item : data) {
-  item *= 2;
-}
-
-// Algorithms library
-std::for_each(data.begin(), data.end(),
-			  double_in_place);
-```
-
----
-# Is there any overhead?
-
-Going to quickly compare four implementations to scale by 0.5:
-
--   C-style array indexing
-
--   Standard vector with iterator
-
--   Standard vector with range based for-loop
-
--   Standard vector with std::for_each
-
-```C++
-int main(int argc, char** argv) {
-  int size = std::atoi(argv[1]);
-  std::vector<float> data(size);
-  for (auto& el: data)
-    el = rand(1000);
-  Timer t;
-  scale(data.data(), data.size(), 0.5);
-  std::cout << size << ", " 
-            << t.GetSeconds() << std::endl;
-}
-```
-
----
-# Results
-.center[![-O0](looptests/opt0.svg)]
-
----
-# Results
-.center[![-O2](looptests/opt2.svg)]
-
----
 # `transform`
 
 A very powerful function with two variants: one takes a single range,
@@ -238,21 +180,22 @@ function-like object as an argument for them to use.
 If you have to declare a new function for a one-off use in an algorithm
 call that is inconvenient and moves the code away from its use site.
 
-Worse would be to have to create a custom functor each time.
+Worse would be to have to create a custom function object class each
+time!
 
 ---
 # A verbose example
 
 ```C++
 struct SquareAndAddConstF {
-  const float c;
+  float c;
   SquareAndAddConstF(float c_) : c(c_) {}
   
   float operator()(float x) {
 	return x*x + c;
   }
 };
-  
+
 std::vector<float> SquareAndAddConst(const std::vector<float>& x, float c) {
   std::vector<float> ans;
   ans.resize(x.size());
@@ -396,6 +339,75 @@ but hard to keep track of.)
 
 ![:thumb](Keep lambdas short - more than 10 lines you should think
 about moving it to a function/functor instead.)
+
+
+---
+template: titleslide
+# Performance
+
+???
+
+Many people are a bit concerned that using iterators/lambdas etc
+incurs some overhead - after all you're calling a bunch of
+functions. So let's benchmark them
+
+---
+
+# Many ways to iterate
+```C++
+// C style iteration - fully explicit
+for (auto i=0; i != n; ++i) {
+  data[i] *= 2;
+  }
+  
+// Old C++ style - hides some details
+for (auto iter = data.begin(); iter != data.end(); ++iter) {
+  *iter *= 2;
+}
+  
+// New range-based for
+for (auto& item : data) {
+  item *= 2;
+}
+
+// Algorithms library
+std::for_each(data.begin(), data.end(),
+			  double_in_place);
+```
+
+---
+# Is there any overhead?
+
+Going to quickly compare four implementations to scale by 0.5:
+
+-   C-style array indexing
+
+-   Standard vector with iterator
+
+-   Standard vector with range based for-loop
+
+-   Standard vector with std::for_each
+
+```C++
+int main(int argc, char** argv) {
+  int size = std::atoi(argv[1]);
+  std::vector<float> data(size);
+  for (auto& el: data)
+    el = rand(1000);
+  Timer t;
+  scale(data.data(), data.size(), 0.5);
+  std::cout << size << ", " 
+            << t.GetSeconds() << std::endl;
+}
+```
+
+---
+# Results
+.center[![-O0](looptests/opt0.svg)]
+
+---
+# Results
+.center[![-O2](looptests/opt2.svg)]
 
 ---
 template: titleslide

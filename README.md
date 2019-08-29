@@ -8,32 +8,18 @@ code that runs efficiently on a variety of architectures.
 However it is still a very large and complex tool. This set of
 lectures and practical exercises, will cover a minimal set of features
 to allow an experienced non-C++ programmer to get to grips with
-language.
+language. These include:
+* defining your own types
+* overloading
+* templates
+* containers
+* iterators
+* lambdas
+* standard algorithms
+* threading
 
-Code: all slides and exercises can be viewed online:
-- Web view: <https://epcced.github.io/2019-08-27-ModernCpp/index.html>
-- Git repository: <https://github.com/EPCCed/2019-08-27-ModernCpp/>
-
-## Acknowledgements
-
-Thanks to PRACE <http://www.prace-ri.eu> and ARCHIE-WeSt
-<https://www.archie-west.ac.uk > for funding!
-
-
-## Local arrangements
-
-- Fire safety
-
-- Toilets
-
-- Catering
-  - Morning coffee 10:30
-  - Lunch 12:00
-  - Afternoon 14:30
-
-
-## Course content
+It concludes with a brief discussion of modern frameworks for portable
+parallel performance which are commonly implemented in C++.
 
 * [Lectures](lectures/)
 * [Practical exercises](exercises/)
-
