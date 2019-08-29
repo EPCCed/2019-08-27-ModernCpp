@@ -5,7 +5,7 @@
 Source for this can be obtained from Github. Get a new copy with:
 
 ```
-git clone https://github.com/EPCCed/cpp4hpc
+git clone https://github.com/EPCCed/2019-08-27-ModernCpp/
 ```
 
 or update your existing one with
@@ -17,7 +17,7 @@ git pull
 then you can
 
 ```
-cd cpp4hpc/exercises/morton-order
+cd 2019-08-27-ModernCpp/exercises/morton-order
 ```
 
 The Morton ordering (or z-ordering) of a matrix lays out the elements
@@ -76,7 +76,7 @@ number.
 Go to the step 1 directory:
 
 ```bash
-cd  cpp4hpc/exercises/morton-order/step1
+cd  2019-08-27-ModernCpp/exercises/morton-order/step1
 ```
 
 Using the partial implemenation in `matrix.hpp`, your task is to
@@ -95,7 +95,7 @@ supplied `Makefile` should work.
 Go to the step 2 directory:
 
 ```bash 
-cd  cpp4hpc/exercises/morton-order/step2
+cd  2019-08-27-ModernCpp/exercises/morton-order/step2
 ```
 
 I have a potential solution to part 1 here, but feel free to copy your

@@ -9,13 +9,13 @@ available from
 __Note__: you should use these build instructions instead of the ones
 in the slides.
 
-The files for this are on [the course repository](https://github.com/EPCCed/cpp4hpc).
+The files for this are on [the course repository](https://github.com/EPCCed/2019-08-27-ModernCpp/).
 
 To check out the repository run:
 
 ```bash
-git clone https://github.com/EPCCed/cpp4hpc.git
-cd cpp4hpc/exercies/kokkos
+git clone https://github.com/EPCCed/2019-08-27-ModernCpp/
+cd 2019-08-27-ModernCpp/exercies/kokkos
 ```
 
 ## Problem: Inner product
@@ -62,7 +62,7 @@ The script will print further instructions.
 # 1. Initialise, Use, Finalise
 
 The corresponding source code can be found in
-`cpp4hpc/exercies/kokkos/1/exercise_1_begin.cpp`
+`2019-08-27-ModernCpp/exercies/kokkos/1/exercise_1_begin.cpp`
 
 In short, you need to set up Kokkos by calling `Kokkos::initialize`
 and `Kokkos::finalize` and convert the _outer_ loops to use the
@@ -105,7 +105,7 @@ Things to look at:
 # 2. Use Views
 
 The corresponding source code is in
-`cpp4hpc/exercies/kokkos/2/exercise_2_begin.cpp`.
+`2019-08-27-ModernCpp/exercies/kokkos/2/exercise_2_begin.cpp`.
 
 In this part, you change the data storage from raw arrays to
 `Kokkos::View` instantiations. The `View` template class provides
@@ -125,7 +125,7 @@ You can plot results with the plotting notebook explained above.
 # 3. Use Mirror Views
 
 The corresponding source code is in
-`cpp4hpc/exercies/kokkos/3/exercise_3_begin.cpp`.
+`2019-08-27-ModernCpp/exercies/kokkos/3/exercise_3_begin.cpp`.
 
 Here we add `HostMirror` instances to manage transfer of data between
 host and GPU memories. Search the source for comments saying
@@ -141,7 +141,7 @@ range of problem sizes.
 # 4. Control the Layout
 
 The corresponding source code is in
-`cpp4hpc/exercies/kokkos/4/exercise_4_begin.cpp`.
+`2019-08-27-ModernCpp/exercies/kokkos/4/exercise_4_begin.cpp`.
 
 Here you will control the layout of the data and experiment with the
 combinations of the execution space and data layout.  Search the

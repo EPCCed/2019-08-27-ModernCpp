@@ -5,7 +5,7 @@
 Source for this can be obtained from Github. Get a new copy with:
 
 ```
-git clone https://github.com/EPCCed/cpp4hpc.git
+git clone https://github.com/EPCCed/2019-08-27-ModernCpp/
 ```
 
 or update your existing one with
@@ -17,7 +17,7 @@ git pull
 then you can
 
 ```
-cd cpp4hpc/exercises/threads
+cd 2019-08-27-ModernCpp/exercises/threads
 ```
 
 
